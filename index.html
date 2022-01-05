@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman!</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Hangman!</h1>
+    <h3>Guess a randomly generated word.</h3>
+    <h5>To guess a letter, simply click the key on your keyboard.</h5>
+    <div id="wrapper">
+      <button onclick="resetGameState()">Reset Game</button>
+      <div class="gallows base"></div>
+      <div class="gallows pole"></div>
+      <div class="gallows top"></div>
+      <div class="rope"></div>
+      <div class="face person hidden"></div>
+      <div class="torso person hidden"></div>
+      <div class="leftarm person hidden"></div>
+      <div class="rightarm person hidden"></div>
+      <div class="leftleg person hidden"></div>
+      <div class="rightleg person hidden"></div>
+      <h2 class="word"></h2>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

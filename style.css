@@ -1,0 +1,132 @@
+body {
+  background-color: rgb(45, 45, 45);
+}
+
+button {
+  position: relative;
+  right: -200px;
+  margin: auto;
+  width: 100px;
+  top: 10px;
+  text-align: center;
+  background-color: rgba(192, 192, 192, 0.529);
+}
+
+h1,
+h3,
+h5 {
+  margin: 10px;
+  text-align: center;
+  color: rgba(0, 238, 255, 0.803);
+}
+
+#wrapper {
+  margin: auto;
+  width: 500px;
+  height: 500px;
+}
+
+.gallows {
+  position: relative;
+  border-left: 6px solid rgb(104, 57, 3);
+}
+
+.base {
+  margin: auto;
+  right: 100px;
+  top: 524px;
+  height: 120px;
+  transform: rotate(90deg);
+}
+
+.pole {
+  height: 240px;
+  top: -20px;
+  right: -145px;
+}
+
+.rope {
+  position: relative;
+  border-left: 3px solid rgb(104, 57, 3);
+  right: -262px;
+  top: -380px;
+  height: 50px;
+}
+
+.top {
+  height: 120px;
+  top: -75px;
+  right: 45px;
+  transform: rotate(90deg);
+}
+
+.face {
+  position: relative;
+  top: -380px;
+  right: -248px;
+  margin-bottom: 0px;
+  height: 20px;
+  width: 20px;
+  background-color: rgb(45, 45, 45);
+  border: 5px solid rgb(223, 152, 70);
+  border-radius: 50%;
+}
+
+.person {
+  color: rgb(223, 152, 70);
+  border-left: 6px solid rgb(223, 152, 70);
+}
+
+.torso {
+  position: relative;
+  top: -381px;
+  right: -261px;
+  margin-top: 0px;
+  height: 85px;
+}
+
+.leftarm {
+  position: relative;
+  top: -706px;
+  right: -38px;
+  height: 40px;
+  transform: rotate(-80deg);
+}
+
+.rightarm {
+  position: relative;
+  top: -260px;
+  right: -78px;
+  height: 40px;
+  transform: rotate(80deg);
+}
+
+.rightleg {
+  position: relative;
+  top: -690px;
+  right: -205px;
+  height: 45px;
+  transform: rotate(-45deg);
+}
+
+.leftleg {
+  position: relative;
+  top: -297px;
+  right: -173px;
+  height: 45px;
+  transform: rotate(45deg);
+}
+
+.word {
+  position: relative;
+  top: -480px;
+  color: rgba(0, 255, 38, 0.803);
+  font-family: monospace;
+  letter-spacing: 20px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
