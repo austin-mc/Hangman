@@ -2,7 +2,6 @@
 
 const wordList = [
   "HANGMAN",
-  "TEST",
   "JAVASCRIPT",
   "PROGRAMMING",
   "HTML",
@@ -11,14 +10,16 @@ const wordList = [
   "ARIZONA",
 ];
 
-let targetWord = getRandWord();
 const wordEl = document.querySelector(".word");
 const headerEl = document.querySelector("h1");
 const subheaderEl = document.querySelector("h3");
 let gameBoard = "";
 let numWrong = 0;
+let winLoss = false;
 
-document.addEventListener("keypress", (e) => {
+const getRandWord = () => wordList[Math.floor(Math.random() * wordList.length)];
+
+const handleKeyPress = (e) => {
   const keyPress = e.key.toUpperCase();
   if (checkGuess(keyPress)) {
     for (let i = 0; i < targetWord.length; i++) {
@@ -29,16 +30,14 @@ document.addEventListener("keypress", (e) => {
     wordEl.textContent = gameBoard;
     checkGame();
   } else {
-    wrongGuess();
-    checkGame();
+    if (!winLoss) {
+      wrongGuess();
+      checkGame();
+    }
   }
-});
+};
 
-function getRandWord() {
-  return wordList[Math.floor(Math.random() * wordList.length)];
-}
-
-function setHTMLWord(i) {
+const setHTMLWord = (i) => {
   if (!i) {
     const str = "_";
     gameBoard = str.repeat(targetWord.length);
@@ -48,22 +47,22 @@ function setHTMLWord(i) {
     const newWordEl = replaceStringCharacter(oldWordEl, i, currentGuess);
     wordEl.textContent = newWordEl;
   }
-}
+};
 
-function replaceStringCharacter(word, i, newLetter) {
+const replaceStringCharacter = (word, i, newLetter) => {
   let firstString = word.slice(0, i);
   let secondString = word.slice(i + 1);
   return firstString + newLetter + secondString;
-}
+};
 
-function checkGuess(guess) {
+const checkGuess = (guess) => {
   for (const char of targetWord) {
     if (guess === char) return 1;
   }
   return 0;
-}
+};
 
-function wrongGuess() {
+const wrongGuess = () => {
   numWrong++;
   switch (numWrong) {
     case 1:
@@ -85,23 +84,26 @@ function wrongGuess() {
       removeHidden(".leftleg");
       break;
   }
-}
+};
 
-function removeHidden(objectClass) {
+const removeHidden = (objectClass) => {
   document.querySelector(objectClass).classList.remove("hidden");
-}
+};
 
-function checkGame() {
+const checkGame = () => {
   if (gameBoard === targetWord) {
+    winLoss = true;
     headerEl.textContent = "WINNER!";
     subheaderEl.textContent = "Click the button below to play again!";
   } else if (numWrong === 6) {
+    winLoss = true;
     headerEl.textContent = "You Lose! Please Try Again";
     subheaderEl.textContent = "Click the button below to play again!";
   }
-}
+};
 
-function resetGameState() {
+const resetGameState = () => {
+  winLoss = false;
   headerEl.textContent = "Hangman!";
   subheaderEl.textContent = "Guess a randomly generated word.";
   targetWord = getRandWord();
@@ -111,6 +113,8 @@ function resetGameState() {
     divs[i].classList.add("hidden");
   }
   numWrong = 0;
-}
+};
 
+let targetWord = getRandWord();
+document.addEventListener("keypress", handleKeyPress);
 setHTMLWord();
